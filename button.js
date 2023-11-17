@@ -36,4 +36,5 @@ function playSound() {
 dance.addEventListener('click', function (event) {
     window.Telegram.WebApp.sendData(JSON.stringify("voted"));
     playSound();
+    window.Telegram.WebApp.close()
 });
