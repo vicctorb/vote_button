@@ -21,7 +21,6 @@ function onError() {
 
 function unpress() {
     dance.classList.remove("pressed");
-    window.Telegram.WebApp.close()
 }
 
 function playSound() {
