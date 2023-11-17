@@ -1,3 +1,4 @@
+window.Telegram.WebApp.ready()
 var contextClass = (window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.oAudioContext || window.msAudioContext);
 var dance = document.getElementById("everybodydance");
 if (contextClass) {
@@ -31,10 +32,10 @@ function playSound() {
     source.start(0);
     var delay = 2000;
     setTimeout(unpress, delay);
+    window.Telegram.WebApp.close()
 }
 
 dance.addEventListener('click', function (event) {
     window.Telegram.WebApp.sendData(JSON.stringify("voted"));
     playSound();
-    window.Telegram.WebApp.close()
 });
