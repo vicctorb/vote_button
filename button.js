@@ -19,9 +19,12 @@ function onError() {
     console.log("Bad browser! No Web Audio API for you");
 }
 
+function closeWebApp() {
+    window.Telegram.WebApp.close()
+}
+
 function unpress() {
     dance.classList.remove("pressed");
-    window.Telegram.WebApp.close()
 }
 
 function playSound() {
@@ -32,6 +35,7 @@ function playSound() {
     source.start(0);
     var delay = 2000;
     setTimeout(unpress, delay);
+    setTimeout(closeWebApp, 4000);
 }
 
 dance.addEventListener('click', function (event) {
