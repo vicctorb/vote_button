@@ -1,3 +1,4 @@
+window.Telegram.WebApp.expand()
 var contextClass = (window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.oAudioContext || window.msAudioContext);
 var dance = document.getElementById("everybodydance");
 if (contextClass) {
@@ -19,8 +20,13 @@ function onError() {
     console.log("Bad browser! No Web Audio API for you");
 }
 
+function sendData() {
+    window.Telegram.WebApp.sendData("voted");
+}
+
 function unpress() {
     dance.classList.remove("pressed");
+    setTimeout(sendData, 1000);
 }
 
 function playSound() {
@@ -35,5 +41,4 @@ function playSound() {
 
 dance.addEventListener('click', function (event) {
     playSound();
-    window.Telegram.WebApp.sendData(JSON.stringify("voted"));
 });
